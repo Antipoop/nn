@@ -62,7 +62,7 @@ function startStopwatch() {
     const day = parseInt((time/(1000*60*60*24))%7)
     const weak = parseInt((time/(1000*60*60*24*7))%4);
     const mounth = parseInt((time/(1000*60*60*24*7*4))%12)
-    const years = parseInt((time/(1000*60*60*24*7*4*12))%100)
+    const years = parseInt((time/(1000*60*60*24*7*4*12)))
      
     //display time
     displayTime(years, mounth, weak, day, hour, minutes, seconds, milliseconds);
