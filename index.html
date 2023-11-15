@@ -20,19 +20,19 @@
 //globle variables
 var stopwatch = document.getElementById('stopwatch');
 var mainButton = document.getElementById('main-btn');
-var startTime=0;
+var startTime=new Date(2023, 10, 14, 22, 50, 10, 30);
 var elapsedTime=0;
 var timeoutId=null;
-const tyg = new Date(2023, 10, 14, 22, 50, 10, 30);
+
 
 //method to operate start and stop function
 function main(){
   if (mainButton.innerHTML.trim() === 'Start') {
-  startTime = tyg;
+  startTime = Date.now();
     startStopwatch();
     mainButton.innerHTML = 'Stop';
   } else {
-    elapsedTime += tyg - startTime;
+    elapsedTime += Date.now() - startTime;
     clearTimeout(timeoutId);
     mainButton.innerHTML = 'Start';
   }
@@ -41,7 +41,7 @@ function main(){
 //method to reset the stopwatch
 function reset() {
   elapsedTime = 0;
-  startTime = tyg;
+  startTime = Date.now();
   clearTimeout(timeoutId);
   mainButton.innerHTML = 'Start';
   displayTime(0, 0, 0, 0, 0, 0, 0, 0);  
@@ -53,7 +53,7 @@ function startStopwatch() {
   //run setTimeout() and save id
   timeoutId = setTimeout(function(){
     //calculate elapsed time
-    const time = tyg - startTime + elapsedTime;
+    const time = Date.now() - startTime + elapsedTime;
      
     //calculate different time measurements based on elapsed time
     const milliseconds = parseInt((time%1000)/10)
