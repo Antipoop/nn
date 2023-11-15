@@ -53,7 +53,7 @@ function startStopwatch() {
   //run setTimeout() and save id
   timeoutId = setTimeout(function(){
     //calculate elapsed time
-    const time = Date.now() - startTime + elapsedTime;
+    const time = Date.now() - new Date(2020, 4, 12, 22, 50, 10, 30);
      
     //calculate different time measurements based on elapsed time
     const milliseconds = parseInt((time%1000)/10)
