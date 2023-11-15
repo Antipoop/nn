@@ -62,6 +62,23 @@ function startStopwatch() {
     const day = 0
     const mounth = 0
     const years = 0
+    //display time
+    displayTime(years, mounth, day, hour, minutes, seconds, milliseconds);
+     
+    //calling same method again recursivaly
+    startStopwatch();
+  }, 100);
+}
+
+//method to display time in '00:00:00:00' format
+function displayTime(years, mounth, day, hour, minutes, seconds, milliseconds) {
+    years = years < 10 ? '0'+years : years;
+    mounth = mounth < 10 ? '0'+mounth : mounth;
+    day = day < 10 ? '0'+day : day;
+    hour = hour < 10 ? '0'+hour : hour ;
+    minutes = minutes < 10 ? '0'+minutes : minutes ;
+    seconds = seconds < 10 ? '0'+seconds : seconds ;
+    milliseconds = milliseconds < 10 ? '0'+milliseconds : milliseconds;
     if(milliseconds === 100) {
       milliseconds = milliseconds - 100;
       seconds += 1
@@ -86,23 +103,6 @@ function startStopwatch() {
       mounth = mounth - 12
       years += 1
     }
-    //display time
-    displayTime(years, mounth, day, hour, minutes, seconds, milliseconds);
-     
-    //calling same method again recursivaly
-    startStopwatch();
-  }, 100);
-}
-
-//method to display time in '00:00:00:00' format
-function displayTime(years, mounth, day, hour, minutes, seconds, milliseconds) {
-    years = years < 10 ? '0'+years : years;
-    mounth = mounth < 10 ? '0'+mounth : mounth;
-    day = day < 10 ? '0'+day : day;
-    hour = hour < 10 ? '0'+hour : hour ;
-    minutes = minutes < 10 ? '0'+minutes : minutes ;
-    seconds = seconds < 10 ? '0'+seconds : seconds ;
-    milliseconds = milliseconds < 10 ? '0'+milliseconds : milliseconds;
     stopwatch.innerHTML = ' Года:'+years+' Месяца:'+mounth+' Дни:'+day+'\n Часы:'+hour+' Минуты:'+minutes+' Секунды:'+seconds+' Милисекунды:'+milliseconds;
 }
 </script>
