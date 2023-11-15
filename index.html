@@ -9,8 +9,8 @@
 <body>
 <h1>НН fебаные</h1>
 <div id="stopwatch-container">
-  <p id="stopwatch">Дни00
-    Часы00Минуты00Секунды00Милисекунды00</p>
+  <p id="stopwatch">Года:00 Месяца:00 Недели:00 Дни:00 
+    Часы:00 Минуты:00 Секунды:00 Милиекунды:00</p>
   <div id="buttons-container">
     <button onclick="main()" id="main-btn" class="btn">Start</button>
     <button onclick="reset()" id="reset-btn" class="btn">Reset</button>
@@ -43,7 +43,7 @@ function reset() {
   startTime = Date.now();
   clearTimeout(timeoutId);
   mainButton.innerHTML = 'Start';
-  displayTime(0, 0, 0, 0, 0);  
+  displayTime(0, 0, 0, 0, 0, 0, 0, 0);  
 }
 
 //method to start the stopwatch
@@ -59,10 +59,13 @@ function startStopwatch() {
     const seconds = parseInt((time/1000)%60)
     const minutes = parseInt((time/(1000*60))%60)
     const hour = parseInt((time/(1000*60*60))%24)
-    const day = parseInt((time/(1000*60*60*24))%7);
+    const day = parseInt((time/(1000*60*60*24))%7)
+    const weak = parseInt((time/(1000*60*60*24*7))%4);
+    const mounth = parseInt((time/(1000*60*60*24*7*4))%12)
+    const years = parseInt((time/(1000*60*60*24*7*4*12))%100)
      
     //display time
-    displayTime(day, hour, minutes, seconds, milliseconds);
+    displayTime(years, mounth, weak, day, hour, minutes, seconds, milliseconds);
      
     //calling same method again recursivaly
     startStopwatch();
@@ -71,12 +74,15 @@ function startStopwatch() {
 
 //method to display time in '00:00:00:00' format
 function displayTime(day, hour, minutes, seconds, milliseconds) {
+    years = years < 10 ? '0'+years : years;
+    mounth = mounth < 10 ? '0'+mounth : mounth;
+    weak = weak < 10 ? '0'+weak : weak;
     day = day < 10 ? '0'+day : day;
     hour = hour < 10 ? '0'+hour : hour ;
     minutes = minutes < 10 ? '0'+minutes : minutes ;
     seconds = seconds < 10 ? '0'+seconds : seconds ;
     milliseconds = milliseconds < 10 ? '0'+milliseconds : milliseconds;
-    stopwatch.innerHTML = 'Дни'+day+'\nЧасы'+hour+'Минуты'+minutes+'Секунды'+seconds+'Милисекунды'+milliseconds;
+    stopwatch.innerHTML = ' Года:'+years+' Месяца:'+mounth+' Недели:'+weak+' Дни:'+day+'\n Часы:'+hour+' Минуты:'+minutes+' Секунды:'+seconds+' Милисекунды:'+milliseconds;
 }
 </script>
 </body>
