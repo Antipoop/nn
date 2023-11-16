@@ -53,10 +53,10 @@
     align-content: flex-start;
     font-family: 'fint';
     font-size: 4vh;
-    color: palevioletred;
+    color: black;
   }
   p {
-    color: darkgrey;
+    color: deeppink;
     font-family: 'fint';
   }
   @font-face {
