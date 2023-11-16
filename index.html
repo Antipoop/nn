@@ -20,9 +20,11 @@
 //globle variables
 var stopwatch = document.getElementById('stopwatch');
 var mainButton = document.getElementById('main-btn');
-var startTime=new Date(2023, 10, 14, 22, 50, 10, 30);
+const nina = new Date("November 18, 2023 00:00:00");
+var startTime=nina
 var elapsedTime=0;
 var timeoutId=null;
+
 
 
 //method to operate start and stop function
@@ -53,14 +55,14 @@ function startStopwatch() {
   //run setTimeout() and save id
   timeoutId = setTimeout(function(){
     //calculate elapsed time
-    const time = Date.now() - new Date(2020, 4, 12, 22, 50, 10, 30);
+    const time = Date.now() - nina;
      
     //calculate different time measurements based on elapsed time
     const milliseconds = parseInt((time%1000)/10)
     const seconds = parseInt((time/1000)%60)
     const minutes = parseInt((time/(1000*60))%60)
     const hour = parseInt((time/(1000*60*60))%24)
-    const day = parseInt((time/(1000*60*60*24))%7)
+    const day = parseInt((time/(1000*60*60*24))%30)
     const weak = parseInt((time/(1000*60*60*24*7))%4);
     const mounth = parseInt((time/(1000*60*60*24*7*4))%12)
     const years = parseInt((time/(1000*60*60*24*7*4*12)))
