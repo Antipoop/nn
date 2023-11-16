@@ -12,8 +12,7 @@
   <p id="stopwatch">Года:00 Месяца:00 Недели:00 Дни:00 
     Часы:00 Минуты:00 Секунды:00 Милиекунды:00</p>
   <div id="buttons-container">
-    <button onclick="main()" id="main-btn" class="btn">Start</button>
-    <button onclick="reset()" id="reset-btn" class="btn">Reset</button>
+    <button onclick="main()" id="main-btn" class="btn">ЧМОК</button>
   </div>
 </div>
 <script>
@@ -29,14 +28,14 @@ var timeoutId=null;
 
 //method to operate start and stop function
 function main(){
-  if (mainButton.innerHTML.trim() === 'Start') {
+  if (mainButton.innerHTML.trim() === 'ЧМОК') {
   startTime = Date.now();
     startStopwatch();
-    mainButton.innerHTML = 'Stop';
+    mainButton.innerHTML = 'ЧМ0К';
   } else {
     elapsedTime += Date.now() - startTime;
     clearTimeout(timeoutId);
-    mainButton.innerHTML = 'Start';
+    mainButton.innerHTML = 'ЧМОК';
   }
 }
 
@@ -45,7 +44,7 @@ function reset() {
   elapsedTime = 0;
   startTime = Date.now();
   clearTimeout(timeoutId);
-  mainButton.innerHTML = 'Start';
+  mainButton.innerHTML = 'ЧМОК';
   displayTime(0, 0, 0, 0, 0, 0, 0, 0);  
 }
 
