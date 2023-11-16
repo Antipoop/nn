@@ -45,7 +45,14 @@
   h1 {
     display: grid;
     justify-content: center;
+    font-family: 'fint';
   }
   p {
     color: darkgrey;
+  }
+  @font-face {
+    font-family: "fint";
+    src: url("./fonts/fint.ttf");
+    font-style: normal;
+    font-weight: normal;
   }
